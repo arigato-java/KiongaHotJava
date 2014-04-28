@@ -34,7 +34,7 @@ sub fetch_temp {
 
 sub run_tempHotJava {
   my $temp=fetch_temp();
-  if(${$temp}{temperature} gt $KHJConfig::HJthresh) {
+  if(${$temp}{temperature} ge $KHJConfig::HJthresh) {
     # Do the HotJava thing!
     print $KHJConfig::hotjavaMessage.${$temp}{link}."\n";
   }
