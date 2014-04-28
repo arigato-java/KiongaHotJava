@@ -11,6 +11,9 @@ our $locationParam="?city=130010";
 # Say HotJava if temp is equal to or greater than ...
 our $HJthresh=28; # degrees celsius
 
+# The path to twitter client `t': see https://github.com/sferik/t
+our $tCommand="t";
+
 # Constant
 our $livedoorWeatherURL="http://weather.livedoor.com/forecast/webservice/json/v1";
 our $targetDateLabel="今日";
