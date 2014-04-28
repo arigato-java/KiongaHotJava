@@ -5,3 +5,6 @@
 
 KHJConfig.pmで各種パラメータの設定ができます。
 
+## ライブラリ
+
+libjson-perl
