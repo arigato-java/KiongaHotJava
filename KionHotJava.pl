@@ -35,10 +35,11 @@ sub fetch_temp {
 sub run_tempHotJava {
   my $temp=fetch_temp();
   #print STDERR ${$temp}{temperature}." C\n";
-  if(${$temp}{temperature} ge $KHJConfig::HJthresh) {
+  if(int(${$temp}{temperature}) >= $KHJConfig::HJthresh) {
     # Do the HotJava thing!
     my $message=$KHJConfig::hotjavaMessage.${$temp}{link}."\n";
     system($KHJConfig::tCommand,"update",$message);
+    #print $message;
   }
 }
 
