@@ -36,8 +36,9 @@ sub run_tempHotJava {
   my $temp=fetch_temp();
   #print STDERR ${$temp}{temperature}." C\n";
   if(int(${$temp}{temperature}) >= $KHJConfig::HJthresh) {
+    my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
     # Do the HotJava thing!
-    my $message=$KHJConfig::hotjavaMessage.${$temp}{link}."\n";
+    my $message=$KHJConfig::hotjavaMessage.${$temp}{link}." ".$mon."/".$mday."\n";
     system($KHJConfig::tCommand,"update",$message);
     #print $message;
   }
