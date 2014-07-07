@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use utf8;
 use HTTP::Tiny;
-use JSON;
+use JSON::PP;
 use KHJConfig;
 
 sub fetch_temp {
