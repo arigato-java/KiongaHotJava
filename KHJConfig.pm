@@ -8,9 +8,6 @@ package KHJConfig;
 # 130010 for Tokyo, 140020 for Odawara, 220030 for Mishima
 our $locationParam="?city=130010";
 
-# Say HotJava if temp is equal to or greater than ...
-our $HJthresh=28; # degrees celsius
-
 # The path to twitter client `t': see https://github.com/sferik/t
 our $tCommand="t";
 
@@ -18,6 +15,13 @@ our $tCommand="t";
 our $livedoorWeatherURL="http://weather.livedoor.com/forecast/webservice/json/v1";
 our $targetDateLabel="今日";
 #our $targetDateLabel="明日";
-our $hotjavaMessage="今日も気温がHotJava "; # Weather URL is appended to this string
+
+our @hotjavaMessages=
+  (
+   {thresh=>39, msg=>'モットジャバって何だよ… '},
+   {thresh=>37, msg=>'今日も気温がモットジャバ '},
+   {thresh=>35, msg=>'今日は気温がモットジャバ '},
+   {thresh=>28, msg=>'今日も気温がHotJava '},
+  );
 
 1;

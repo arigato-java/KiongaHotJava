@@ -32,14 +32,25 @@ sub fetch_temp {
   }
 }
 
+sub msgForTemp {
+  my $temp=shift;
+  foreach (@KHJConfig::hotjavaMessages) {
+    if($temp >= ${$_}{'thresh'}) {
+      return ${$_}{msg};
+    }
+  }
+  return undef;
+}
+
 sub run_tempHotJava {
   my $temp=fetch_temp();
   #print STDERR ${$temp}{temperature}." C\n";
-  if(int(${$temp}{temperature}) >= $KHJConfig::HJthresh) {
+  my $msg=msgForTemp(int(${$temp}{temperature}));
+  if(defined($msg)) {
     # Do the HotJava thing!
     my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
     $mon++;
-    my $message=$KHJConfig::hotjavaMessage.${$temp}{link}." ".$mon."/".$mday."\n";
+    my $message=$msg.${$temp}{link}." ".$mon."/".$mday."\n";
     system($KHJConfig::tCommand,"update",$message);
     #print $message;
   }
