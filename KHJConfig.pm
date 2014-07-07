@@ -20,7 +20,7 @@ our @hotjavaMessages=
   (
    {thresh=>39, msg=>'モットジャバって何だよ… '},
    {thresh=>37, msg=>'今日も気温がモットジャバ '},
-   {thresh=>35, msg=>'今日は気温がモットジャバ '},
+   {thresh=>35, msg=>'今日の気温はモットジャバ '},
    {thresh=>28, msg=>'今日も気温がHotJava '},
   );
 
